@@ -1,0 +1,40 @@
+--- # onemore conditionals
+- hosts: all
+  become: yes
+  user: ansible
+  connection: ssh
+  tasks:
+
+      - name: install httpd pkg
+        yum: 
+           name: httpd
+           state: present
+        when: ansible_os_family == "RedHat"
+
+      - name: service httpd statrt
+        service: 
+            name: httpd
+            state: started
+        when: ansible_os_family == "RedHat"
+
+
+      - name: install apache2 for debian
+        apt:
+            name: apache2
+            state: present
+        when: ansible_os_family == "Debian"
+
+
+      - name: service apache2 satart
+        service:
+            name: apache2
+            state: started
+        when: ansible_os_family == "Debian"
+
+
+      - name: copying index.html
+        copy: 
+              src: /home/ansible/index.html
+              dest: /var/www/html
+              owner: sunny
+              mode: 0777

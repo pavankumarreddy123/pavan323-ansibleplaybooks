@@ -1,0 +1,19 @@
+--- # all hosts
+- name: another way for install many s/w s
+  hosts: all
+  become: yes
+  user: ansible
+  connection: ssh
+  tasks: 
+
+     - name: install many s/ws
+       yum: name='{{item}}' state=installed
+       with_items:
+
+            - httpd
+            - java
+            - tree
+            - docker
+            - git
+
+

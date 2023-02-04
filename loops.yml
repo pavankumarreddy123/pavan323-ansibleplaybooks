@@ -1,0 +1,9 @@
+--- # loops concept
+- hosts: all
+  become: yes
+  tasks:
+
+     - name: install many s/w s
+       yum: 
+          name: ['git','which','tree','docker','mysql','httpd','java']
+          state: present

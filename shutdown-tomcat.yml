@@ -1,0 +1,12 @@
+--- # shutdown tomcat
+- hosts: all
+  user: ansible
+  connection: ssh
+  become: yes
+  tasks:
+
+    - name: stop tomcat
+      shell: ./shutdown.sh
+      args: 
+         chdir: /opt/apache-tomcat-8.5.85/bin
+         

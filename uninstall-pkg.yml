@@ -1,0 +1,8 @@
+--- # uninstall a pkage
+- hosts: all
+  become: yes
+  tasks:
+     - name: uninstall softwares
+       yum:
+          name: httpd
+          state: absent

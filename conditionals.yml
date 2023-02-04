@@ -1,0 +1,16 @@
+--- # my conditonals
+- hosts: all
+  become: yes
+  user: ansible
+  connection: ssh
+
+  tasks: 
+
+      - name: install apache for debian
+        command: apt-get install apache2 -y
+        when: ansible_os_family == "Debian"
+        
+
+      - name: insatll httpd on redhat
+        command: yum install httpd -y
+        when: ansible_os_family == "RedHat"   

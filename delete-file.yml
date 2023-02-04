@@ -1,0 +1,10 @@
+--- # delete a file
+- hosts: all
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+     - name: delete xyzfile
+       file:
+          path: /home/ansible/xyzfile
+          state: absent

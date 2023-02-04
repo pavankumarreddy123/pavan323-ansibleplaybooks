@@ -1,0 +1,22 @@
+--- # sample yaml file
+- hosts: all
+  become: yes
+  user: ansible
+  connection: ssh
+  tasks:
+
+
+     - name: creting a file with playbook
+       file:
+          path: /tmp/hari.txt
+          state: touch
+
+     - name: creating a directory
+       file:
+           path: /tmp/temp.dir
+           state: directory
+
+     - name: copying a file
+       copy: 
+           src: /home/ansible/abc100
+           dest: /home/ansible/

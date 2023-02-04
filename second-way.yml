@@ -1,0 +1,17 @@
+--- # second -way
+- hosts: all
+  user: ansible
+  connection: ssh
+  become: yes
+  tasks:
+
+     - name: install httpd
+       yum:
+           name: httpd
+           state: present
+
+     - name: service httpd
+       service:
+            name: httpd
+            state: started    
+

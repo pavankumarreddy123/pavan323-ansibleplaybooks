@@ -1,0 +1,8 @@
+--- # installing softwares
+- hosts: all
+  become: yes
+  tasks:
+     - name: installing pkgs
+       yum:
+          name: httpd
+          state: present
